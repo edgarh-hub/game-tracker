@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('sqlite3');
+const sqlite3 = require('sqlite3');
 const cors = require('cors');
 
 const app = express(); 
@@ -23,4 +23,19 @@ db.run(`CREATE TABLE IF NOT EXISTS games (
   status TEXT
 )`);
 
+// API stuff, first one is GET 
+app.get('/api/games', (req, res) => {
+  const sql = 'SELECT * FROM games';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(rows);
+  });
+});
 
+// tell it which port to use
+const PORT = 300;
+app.listen(PORT, () => {
+  console.log('Server is on port ${PORT');
+});
