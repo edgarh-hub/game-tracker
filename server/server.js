@@ -37,5 +37,5 @@ app.get('/api/games', (req, res) => {
 // tell it which port to use
 const PORT = 3001;
 app.listen(PORT, () => {
-  console.log(`Server is on port ${PORT`);
+  console.log(`Server is on port ${PORT}`);
 });
