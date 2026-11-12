@@ -39,3 +39,27 @@ const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server is on port ${PORT}`);
 });
+
+// POST API 
+app.post('/api/games', (req, res) => {
+  db.run('INSERT INTO games (title, genre, status) VALUES (?, ?, ?)', [req.body.title, req.body.genre, req.body.status], (err) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ success: true });
+  });
+});
+
+// PUT API
+app.put('/api/games/:id', (req, res) => {
+  db.run('UPDATE games SET title = ?, genre = ?, status = ? WHERE id = ?', [req.body.title, req.body.genre, req.body.status, req.params.id], (err) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ success: true });
+  });
+});
+
+// DELETE API
+app.delete('/api/games/:id', (req, res) => {
+  db.run('DELETE FROM games WHERE id = ?', [req.params.id], (err) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ success: true });
+  });
+});
