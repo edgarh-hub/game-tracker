@@ -3,8 +3,8 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container">
-        <Link className="navbar-expand fw-bold" to="/">
-          Game Tracker
+        <Link className="navbar-brand fw-bold" to="/">
+          Discover
         </Link>
         <button
           className="navbar-toggler"
@@ -22,7 +22,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className"nav-link" to="/liked">
+              <Link className="nav-link" to="/liked">
                 Liked
               </Link>
             </li>
