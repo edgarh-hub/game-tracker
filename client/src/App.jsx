@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -14,33 +14,33 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  const addGame = (e) => {
+  const addGame = async (e) => {
     e.preventDefault();
 
     try {
-      await fetch('http://localhost:3001/api/games', {
-        method: 'POST', 
-        headers: { 'Content-Type': 'application/json' }, 
+      await fetch("http://localhost:3001/api/games", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, genre, status }),
       });
 
-      setTitle('');
-      setGenre(''); 
-      setStatus('');
+      setTitle("");
+      setGenre("");
+      setStatus("");
 
-      const res = await fetch('http://localhost:3001/api/games');
+      const res = await fetch("http://localhost:3001/api/games");
       const data = await res.json();
       setGames(data);
     } catch (err) {
       console.error(err);
     }
-  }
+  };
   // added the correct format for the div. also added some padding
   return (
-  <div className="container py-5">
-    <h1 className="mb-4 text-center">Game Tracker & wishlist</h1>
+    <div className="container py-5">
+      <h1 className="mb-4 text-center">Game Tracker & wishlist</h1>
     </div>
-  )
+  );
 }
 
 export default App;
