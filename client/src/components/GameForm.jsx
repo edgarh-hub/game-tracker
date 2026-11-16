@@ -50,4 +50,4 @@ function GameForm({
   );
 }
 
-export default gameForm;
+export default GameForm;
