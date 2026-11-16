@@ -37,17 +37,10 @@ function App() {
   }
   // added the correct format for the div. also added some padding
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Game Tracker</h1>
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>
-            {game.title} - {game.status}
-          </li>
-        ))}
-      </ul>
+  <div className="container py-5">
+    <h1 className="mb-4 text-center">Game Tracker & wishlist</h1>
     </div>
-  );
+  )
 }
 
 export default App;
