@@ -14,6 +14,27 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  const addGame = (e) => {
+    e.preventDefault();
+
+    try {
+      await fetch('http://localhost:3001/api/games', {
+        method: 'POST', 
+        headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify({ title, genre, status }),
+      });
+
+      setTitle('');
+      setGenre(''); 
+      setStatus('');
+
+      const res = await fetch('http://localhost:3001/api/games');
+      const data = await res.json();
+      setGames(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
   // added the correct format for the div. also added some padding
   return (
     <div style={{ padding: "20px" }}>
