@@ -46,33 +46,33 @@ function App() {
             <div className="col-md-4">
               <input
                 type="text"
-                className="form-controll"
+                className="form-control"
                 placeholder="Game Title"
-                value="{title}"
+                value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="col-md-4">
               <input
                 type="text"
-                className="form-controll"
+                className="form-control"
                 placeholder="Genre"
-                value="{Genre}"
+                value={genre}
                 onChange={(e) => setGenre(e.target.value)}
               />
             </div>
             <div className="col-md-3">
               <input
                 type="text"
-                className="form-controll"
+                className="form-control"
                 placeholder="Status"
-                value="{Status}"
+                value={status}
                 onChange={(e) => setStatus(e.target.value)}
               />
             </div>
           </div>
           <div className="col-md-1 d-grid">
-            <button type="submit" className="primary-button">
+            <button type="submit" className="btn btn-primary">
               Add
             </button>
           </div>
