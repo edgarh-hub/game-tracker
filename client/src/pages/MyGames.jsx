@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
 import GameForm from "../components/GameForm";
 import GameList from "../components/GameList";
-
 function MyGames() {
   const [games, setGames] = useState([]);
   const [title, setTitle] = useState("");
@@ -51,18 +51,21 @@ function MyGames() {
   };
 
   return (
-    <div className="container py-5">
-      <h1 className="mb-4 text-center">Game Tracker & wishlist</h1>
-      <GameForm
-        title={title}
-        setTitle={setTitle}
-        genre={genre}
-        setGenre={setGenre}
-        status={status}
-        setStatus={setStatus}
-        addGame={addGame}
-      />
-      <GameList games={games} clearDatabase={clearDatabase} />
+    <div>
+      <Navbar />
+      <div className="container py-5">
+        <h1 className="mb-4 text-center">Game Tracker & wishlist</h1>
+        <GameForm
+          title={title}
+          setTitle={setTitle}
+          genre={genre}
+          setGenre={setGenre}
+          status={status}
+          setStatus={setStatus}
+          addGame={addGame}
+        />
+        <GameList games={games} clearDatabase={clearDatabase} />
+      </div>
     </div>
   );
 }

@@ -40,7 +40,7 @@ function GameForm({
             />
           </div>
         </div>
-        <div className="col-md-1 d-grid">
+        <div className="col-md-2 d-grid">
           <button type="submit" className="btn btn-primary">
             Add
           </button>
