@@ -39,6 +39,22 @@ function App() {
   return (
     <div className="container py-5">
       <h1 className="mb-4 text-center">Game Tracker & wishlist</h1>
+      <div className="card shadow mb-4">
+        <h3 className="card-title mb-3">Add a new game here</h3>
+        <form onSubmit={addGame}>
+          <div className="row g-3">
+            <div className="col-md-4">
+              <input
+                type="text"
+                className="form-controll"
+                placeholder="Genre"
+                value="{Genre}"
+                onChange={(e) => setGenre(e.target.value)}
+              />
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
