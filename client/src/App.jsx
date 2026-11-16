@@ -35,6 +35,19 @@ function App() {
       console.error(err);
     }
   };
+
+  const clearDatabase = async () => {
+    if (!window.confirm("Are you sure you want to clear all games?")) return;
+
+    try {
+      await fetch("http://localhost:3001/api/games", {
+        method: "DELETE",
+      });
+      setGames([]); // Reset state to empty array
+    } catch (err) {
+      console.error("Error clearing database:", err);
+    }
+  };
   // added the correct format for the div. also added some padding
   return (
     <div className="container py-5">
@@ -79,7 +92,16 @@ function App() {
         </form>
       </div>
 
-      <h2 className="mb-3">My Games</h2>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2>My Games</h2>
+        <button
+          onClick={clearDatabase}
+          className="btn btn-outline-danger btn-sm"
+        >
+          Clear All Games
+        </button>
+      </div>
+
       <div className="list-group">
         {games.map((game) => (
           <div
