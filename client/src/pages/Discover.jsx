@@ -1,1 +1,10 @@
-<h1>This will be the Discover page</h1>;
+function Discover() {
+  return (
+    <div className="container mt-4">
+      <h1>Discover Games</h1>
+      <p className="text-muted">Browse and explore games here.</p>
+    </div>
+  );
+}
+
+export default Discover;
