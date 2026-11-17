@@ -61,6 +61,7 @@ function MyGames() {
           status={status}
           setStatus={setStatus}
           addGame={addGame}
+        />
         <GameList games={games} clearDatabase={clearDatabase} />
       </div>
     </div>

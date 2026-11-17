@@ -32,13 +32,16 @@ function GameForm({
               />
             </div>
             <div className="col-md-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Status"
+              <select
+                className="form-select"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
-              />
+              >
+                <option value="">Select Status</option>
+                <option value="Not Started">Not Started</option>
+                <option value="Started">Started</option>
+                <option value="Completed">Completed</option>
+              </select>
             </div>
             <div className="col-md-2 d-grid">
               <button type="submit" className="btn btn-primary">
