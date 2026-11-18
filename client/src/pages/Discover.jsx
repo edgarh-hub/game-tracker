@@ -1,20 +1,27 @@
+import { useState, useEffect } from "react"; // forgot to add this before 
 function Discover() {
-  // trying to figure out how fetch works lol 
-  const [games, setGames] = useState([
-    { id: 1, name: "Test Game 1", released: "2026-01-01"}
-    { id: 2, name: "GTA 5", released: "2013"}
-  ]);
+  const [games, setGames] = useState([]);
 
-  return
-    <div className="container py-5">
-      <h1>Discover Games</h1>
-      <ul>
-        {games.map(g => (
-         <li key={g.id}>{g.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+  // adding api key 
+  const API_KEY = import.meta.env.VITE_RAWG_API_KEy;
+
+  useEffect(() => {
+    fetch('hettps://api.rawg.io/api/games?key=${KEY}'
+    .then(res => res.json())
+    .then(data => {
+    setGames(data);
+    });
+  })
+  
+   return (
+   <div>
+    <h1>Discover Games</h1>
+      {/* <div>{games.map(g => g.name)}</div> */}
+      <p>
+        Loading games....
+      </p>
+   </div>
+   );
+  }
 
 export default Discover;
